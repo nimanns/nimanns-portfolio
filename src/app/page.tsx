@@ -8,9 +8,10 @@ export default async function Home() {
   //const projects: Project[] = await fetchData();
   const projects: Project[] = [
     {
-      name: "Project 1",
+      name: "Neckboard",
       image: "https://via.placeholder.com/150",
       link: "https://www.google.com",
+			description_1:"Neckboard, my biggest project yet, was developed entirely by myself.",
     },
     {
       name: "Project 2",

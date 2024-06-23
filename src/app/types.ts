@@ -3,3 +3,5 @@ export type Project = {
   image: string;
   link: string;
 };
+
+export type Direction = "next" | "previous";

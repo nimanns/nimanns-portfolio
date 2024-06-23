@@ -3,20 +3,28 @@
 import {motion, AnimatePresence} from "framer-motion";
 import {useState, useEffect, useRef, useCallback} from "react";
 import {useThrottle} from "./utils/utils.ts";
-import type { Project } from "./types";
+import type { Project, Direction } from "./types";
 import ProjectComponent from "./components/Project.tsx";
 
 export default function Projects({projects} : {projects: Project[]}){
 	const [index, setIndex] = useState<number>(0);	
 	const [direction, setDirection] = useState<number>(0);
 	const effectsRan = useRef<boolean>(false);
-
-	const nextProject = useCallback(()=>{
-		setDirection(1);
-		setIndex((prevIndex) => (prevIndex + 1) % projects.length);
-	}, [projects.length]);
-	
-	const debouncedNextProject = useThrottle(nextProject, 600);
+	const moveProject = useCallback((direction:Direction)=>{
+		switch(direction){
+			case "next":
+				setDirection(1);
+				setIndex((prevIndex) => (prevIndex + 1) % projects.length);
+				break;
+			case "previous":
+				setDirection(-1); 
+				setIndex((prevIndex)=> prevIndex === 0 ? projects.length-1 :(prevIndex - 1)  );
+				break;
+			default:
+				break;
+		}
+	},[]);
+	const debouncedMoveProject = useThrottle(moveProject, 600);
 
 	useEffect(()=>{
 			if(effectsRan.current) return;
@@ -24,8 +32,10 @@ export default function Projects({projects} : {projects: Project[]}){
 			window.addEventListener("keyup", (e)=>{
 				switch(e.key){
 					case "ArrowRight":
-						debouncedNextProject();
+						debouncedMoveProject("next");
 						break;
+					case "ArrowLeft":
+						debouncedMoveProject("previous");
 					default:
 						break;
 				}
@@ -63,7 +73,6 @@ export default function Projects({projects} : {projects: Project[]}){
 					transition={{type:"tween", ease: cuteBezier, duration: 0.5}}
 				>
 			<ProjectComponent project={projects[index]}/>
-			<button onClick={nextProject}>Next</button>
 			</motion.div>
 		</AnimatePresence>
 	}
