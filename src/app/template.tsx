@@ -15,6 +15,7 @@ const transition_options: Transition = {
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <motion.main
+			class="overflow-hidden"
       variants={variants}
       initial="hidden"
       animate="enter"

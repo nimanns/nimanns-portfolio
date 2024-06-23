@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { Project } from "./types";
+import type { Project } from "./types";
+import ProjectComponent from "./components/Project";
 import { useEffect, useState } from "react";
 import { fetchData } from "./utils/utils";
 
 export default async function Home() {
-  // const projects: Project[] = await fetchData();
+  //const projects: Project[] = await fetchData();
   const projects: Project[] = [
     {
       name: "Project 1",
@@ -37,25 +38,13 @@ export default async function Home() {
       link: "https://www.google.com",
     },
   ];
+	let index = 0;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-14 gap-12">
-      <h1>Projects</h1>
-      <p>A new portfolio page.</p>
-      {projects.map((project) => (
-        <div
-          key={project.name}
-          className="flex flex-col items-center justify-center"
-        >
-          <Image
-            width={150}
-            height={150}
-            alt="project image"
-            src={project.image}
-          ></Image>
-          <h2>{project.name}</h2>
-        </div>
-      ))}
+    <main className="overflow-x-hidden flex min-h-screen flex-row items-center justify-between gap-12">
+			<ProjectComponent
+				projects={projects}
+			></ProjectComponent>
     </main>
   );
 }
