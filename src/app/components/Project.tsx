@@ -3,16 +3,35 @@
 import type { Project } from "../types";
 import Image from "next/image";
 import {motion, AnimatePresence} from "framer-motion";
-import {useState} from "react";
+import {useState, useEffect, useRef, useCallback} from "react";
+import {useThrottle} from "../utils/utils.ts";
 
 export default function Project({ projects }: { projects: Project[] }) {
-	const [index, setIndex] = useState<Number>(0);	
-	const [direction, setDirection] = useState<Number>(0);
-	const nextProject = ()=>{
-		setDirection(1);
-		setIndex((index + 1) % projects.length)
-	}
+	const [index, setIndex] = useState<number>(0);	
+	const [direction, setDirection] = useState<number>(0);
+	const effectsRan = useRef<boolean>(false);
 
+	const nextProject = useCallback(()=>{
+		setDirection(1);
+		setIndex((prevIndex) => (prevIndex + 1) % projects.length);
+	}, [projects.length]);
+	
+	const debouncedNextProject = useThrottle(nextProject, 600);
+
+	useEffect(()=>{
+			if(effectsRan.current) return;
+			effectsRan.current = true;
+			window.addEventListener("keyup", (e)=>{
+				switch(e.key){
+					case "ArrowRight":
+						debouncedNextProject();
+						break;
+					default:
+						break;
+				}
+			})
+		}, []);
+	
   const variants = {
     enter: (dir) => ({
       x: dir > 0 ? '100%' : '-100%',
