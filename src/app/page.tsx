@@ -1,8 +1,8 @@
 import Image from "next/image";
 import type { Project } from "./types";
-import ProjectComponent from "./components/Project";
 import { useEffect, useState } from "react";
 import { fetchData } from "./utils/utils";
+import Projects from "./projects.tsx";
 
 export default async function Home() {
   //const projects: Project[] = await fetchData();
@@ -42,9 +42,9 @@ export default async function Home() {
 
   return (
     <main className="overflow-x-hidden flex min-h-screen flex-row items-center justify-between gap-12">
-			<ProjectComponent
+			<Projects
 				projects={projects}
-			></ProjectComponent>
+			></Projects>
     </main>
   );
 }
