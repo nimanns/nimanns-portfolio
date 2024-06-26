@@ -1,14 +1,103 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+:root {
+  --french-violet: #7400b8ff;
+  --grape: #6930c3ff;
+  --slate-blue: #5e60ceff;
+  --united-nations-blue: #5390d9ff;
+  --picton-blue: #4ea8deff;
+  --aero: #48bfe3ff;
+  --sky-blue: #56cfe1ff;
+  --tiffany-blue: #64dfdfff;
+  --turquoise: #72efddff;
+  --aquamarine: #80ffdbff;
+	--dark-blue: #0066A4;
+  --medium-blue: #0099CC;
+  --light-blue: #66CCFF;
+  --white: #FFFFFF;
+}
+
+html {
+  --s: 300px; /* control the size*/
+  --c1: var(--dark-blue);
+  --c2: var(--medium-blue);
+  --c3: var(--light-blue);
+  --c4: var(--white);
+
+  background: conic-gradient(
+      from 45deg at 75% 75%,
+      var(--c3) 90deg,
+      var(--c1) 0 180deg,
+      #0000 0
+    ),
+    conic-gradient(from -45deg at 25% 25%, var(--c3) 90deg, #0000 0),
+    conic-gradient(from -45deg at 50% 100%, #0000 180deg, var(--c3) 0),
+    conic-gradient(
+      from -45deg,
+      var(--c1) 90deg,
+      var(--c2) 0 225deg,
+      var(--c4) 0
+    );
+  background-size: var(--s) var(--s);
+}
+
+* {
+  font-family: "DM Serif Text", serif;
+  box-sizing: border-box !important;
+}
 
 body {
-	background-color: #000;
-	color: #fff;
+  color: #fff;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+#project-title::before {
+  content: "-";
+  position: absolute;
+  font-size: 120px;
+  left: -60px;
+  top: -10px;
+}
+
+/*sm*/
+@media (min-width: 640px) {
+  #project-title::before {
+    font-size: 120px;
+    left: -60px;
+    top: -10px;
+  }
+}
+
+/*md*/
+@media (min-width: 768px) {
+  #project-title::before {
+    font-size: 140px;
+    left: -60px;
+    top: -15px;
+  }
+}
+
+/*lg*/
+@media (min-width: 1024px) {
+  #project-title::before {
+    font-size: 190px;
+    left: -65px;
+    top: -90px;
+  }
+}
+
+/*xl*/
+@media (min-width: 1280px) {
+}
+
+/*2xl*/
+@media (min-width: 1536px) {
 }

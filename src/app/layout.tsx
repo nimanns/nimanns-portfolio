@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nima Niazi - Portfolio",
-  description: "A creative portfolio designed as a complimentary piece to my main landing website: nimaniazi.com",
+  description:
+    "A creative portfolio designed as a complimentary piece to my main landing website: nimaniazi.com",
 };
 
 export default function RootLayout({
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " overflow-hidden"}>{children}</body>
+      <body className={inter.className + " overflow-x-hidden "}>
+				<div className="absolute z-10 w-[170px] drop-shadow-sm"><a href="https://nimaniazi.com/"><img width="100%" src="/logo.png" alt="Logo depicting my name."/></a></div>
+        {children}
+      </body>
     </html>
   );
 }

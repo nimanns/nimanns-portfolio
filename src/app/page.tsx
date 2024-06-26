@@ -2,50 +2,16 @@ import Image from "next/image";
 import type { Project } from "./types";
 import { useEffect, useState } from "react";
 import { fetchData } from "./utils/utils";
-import Projects from "./projects.tsx";
+import Projects from "./projects";
+import { projects_db } from "./projects_db";
 
 export default async function Home() {
   //const projects: Project[] = await fetchData();
-  const projects: Project[] = [
-    {
-      name: "Neckboard",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-			description_1:"Neckboard, my biggest project yet, was developed entirely by myself.",
-    },
-    {
-      name: "Project 2",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-    },
-    {
-      name: "Project 3",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-    },
-    {
-      name: "Project 4",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-    },
-    {
-      name: "Project 5",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-    },
-    {
-      name: "Project 6",
-      image: "https://via.placeholder.com/150",
-      link: "https://www.google.com",
-    },
-  ];
-	let index = 0;
+  let index = 0;
 
   return (
-    <main className="overflow-x-hidden flex min-h-screen flex-row items-center justify-between gap-12">
-			<Projects
-				projects={projects}
-			></Projects>
+    <main className="relative overflow-hidden flex min-h-screen flex-row items-center justify-center gap-2">
+      <Projects projects={projects_db}></Projects>
     </main>
   );
 }

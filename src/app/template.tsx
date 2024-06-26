@@ -3,8 +3,8 @@
 import { Transition, Variants, motion } from "framer-motion";
 
 const variants: Variants = {
-  hidden: { opacity: 0, x: -200, y: 250 },
-  enter: { opacity: 1, x: 0, y: 0 },
+  hidden: { opacity: 0, },
+  enter: { opacity: 1, },
 };
 
 const transition_options: Transition = {
@@ -15,7 +15,7 @@ const transition_options: Transition = {
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <motion.main
-			className="overflow-hidden"
+      className="overflow-x-hidden"
       variants={variants}
       initial="hidden"
       animate="enter"
