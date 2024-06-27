@@ -57,9 +57,11 @@ export default function Project({ project }: { project: Project }) {
         exit="exit"
         transition={main_transition}
       >
-        <motion.h1 className="p-10 text-[32px] sm:p-3 w-fit h-fit sm:text-4xl">
-          {project.name}
-        </motion.h1>
+        <a href={project.url} target="_blank">
+          <motion.h1 className="underline p-10 text-[32px] sm:p-3 w-fit h-fit sm:text-4xl">
+            {project.name}
+          </motion.h1>
+        </a>
         <Image
           className="sm:ml-auto"
           width={150}
@@ -70,16 +72,28 @@ export default function Project({ project }: { project: Project }) {
       </motion.div>
       <motion.div className="flex flex-row w-full h-fit gap-10 items-center justify-center p-10">
         <motion.div
-					className="absolute h-full w-full object-cover z-[-1] blur-xl h-full mix-blend-add"
-					animate={["animate", "loop"]}
-          variants={{initial:{opacity:0, y:50}, animate:{opacity:1, y:0}, loop:{y:[-10,20,-10], transition:{duration:20, repeat: Infinity, repeatType:"loop", ease:"easeInOut"}}}}
-          transition={{animate: {duration:0.5}, loop: {delay:0.5}}}
+          className="absolute h-full w-full object-cover z-[-1] blur-xl h-full mix-blend-add"
+          animate={["animate", "loop"]}
+          variants={{
+            initial: { opacity: 0, y: 50 },
+            animate: { opacity: 1, y: 0 },
+            loop: {
+              y: [-10, 20, -10],
+              transition: {
+                duration: 20,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              },
+            },
+          }}
+          transition={{ animate: { duration: 0.5 }, loop: { delay: 0.5 } }}
         >
-         <Image
-						className="w-full h-full object-cover opacity-40 absolute top-[250px]"
-						width={0}
-						height={0}
-						sizes="100vw"
+          <Image
+            className="w-full h-full object-cover opacity-40 absolute top-[250px]"
+            width={0}
+            height={0}
+            sizes="100vw"
             alt="project image"
             src={project.image}
           ></Image>
@@ -96,7 +110,13 @@ export default function Project({ project }: { project: Project }) {
       >
         {project?.description_1}
       </motion.h2>
-      <motion.p className="mt-10 text-lg" variants={description_variants} transition={description_transition}>{project?.description_2}</motion.p> 
+      <motion.p
+        className="mt-10 text-lg"
+        variants={description_variants}
+        transition={description_transition}
+      >
+        {project?.description_2}
+      </motion.p>
     </motion.div>
   );
 }

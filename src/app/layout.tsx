@@ -18,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " overflow-x-hidden "}>
-				<div className="absolute z-10 w-[170px] drop-shadow-sm"><a href="https://nimaniazi.com/"><img width="100%" src="/logo.png" alt="Logo depicting my name."/></a></div>
+        <div className="absolute z-10 w-[170px] drop-shadow-sm filter hover:brightness-50">
+          <a href="https://nimaniazi.com/">
+            <img width="100%" src="/logo.png" alt="Logo depicting my name." />
+          </a>
+        </div>
         {children}
       </body>
     </html>

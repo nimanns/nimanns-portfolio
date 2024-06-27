@@ -106,6 +106,13 @@ export default function Projects({ projects }: { projects: Project[] }) {
           </motion.div>
         </AnimatePresence>
       )}
+      <motion.div className="absolute bottom-10 w-fit h-50 flex flex-row justify-center contents-center">
+        <motion.div variants={{}} id="left-arrow" className="w-10"></motion.div>
+        <p className="text-2xl w-fit">
+          Use arrow keys or swipe left and right to move between projects
+        </p>
+        <motion.div id="right-arrow" className="w-10 "></motion.div>
+      </motion.div>
     </>
   );
 }
