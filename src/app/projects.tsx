@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { cuteBezier } from "./utils/utils";
 import { useThrottle } from "./utils/clientUtils";
@@ -87,6 +87,48 @@ export default function Projects({ projects }: { projects: Project[] }) {
     duration: 0.5,
   };
 
+  const arrow_right_variants: Variants = {
+    animate: {
+      x: ["-20%", "20%"],
+      opacity: [0, 1, 1, 0],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 1,
+          ease: "linear",
+        },
+        opacity: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 1,
+          times: [0, 0.1, 0.9, 1],
+        },
+      },
+    },
+  };
+
+  const arrow_left_variants: Variants = {
+    animate: {
+      x: ["20%", "-20%"],
+      opacity: [0, 1, 1, 0],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 1,
+          ease: "linear",
+        },
+        opacity: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 1,
+          times: [0, 0.1, 0.9, 1],
+        },
+      },
+    },
+  };
+
   return (
     <>
       {projects && (
@@ -106,12 +148,33 @@ export default function Projects({ projects }: { projects: Project[] }) {
           </motion.div>
         </AnimatePresence>
       )}
-      <motion.div className="absolute bottom-10 w-fit h-50 flex flex-row justify-center contents-center">
-        <motion.div variants={{}} id="left-arrow" className="w-10"></motion.div>
+      <motion.div
+        variants={{
+          animate: {
+            opacity: [1, 0],
+            transition: {
+              opacity: { duration: 0.2, ease: [0.0, 0.0, 0.8, 0.99], delay: 5 },
+            },
+          },
+        }}
+        animate="animate"
+        className="absolute bottom-10 w-fit h-50 flex flex-row justify-center contents-center"
+      >
+        <motion.div
+          variants={arrow_left_variants}
+          animate="animate"
+          id="left-arrow"
+          className="w-10"
+        ></motion.div>
         <p className="text-2xl w-fit">
           Use arrow keys or swipe left and right to move between projects
         </p>
-        <motion.div id="right-arrow" className="w-10 "></motion.div>
+        <motion.div
+          variants={arrow_right_variants}
+          animate="animate"
+          id="right-arrow"
+          className="w-10 "
+        ></motion.div>
       </motion.div>
     </>
   );
