@@ -8,7 +8,7 @@ export const projects_db: Project[] = [
     description_1:
       "Hi! My name is Nima. I'm a developer and software engineer based in Brooklyn, NY. This is my portfolio website showcasing the work that I've done so far.",
     description_2:
-      "I'm currently looking for new opportunities. Feel free to reach out!",
+      "I have a master's degree from NYU's Interactive Telecommunications Program, where I conducted work related to HCI and applied the latest technology to solve problems. Additionally, I have been appointed as a post-doctoral research resident for the academic year 2024-2025 within the same program.",
   },
   {
     url: "https://neckboard.com",
@@ -64,49 +64,32 @@ export const projects_db: Project[] = [
     url: "https://nimaniazi.com/citizenjane",
     image: "https://nimaniazi.com/static/citizenjane/thumbnail.jpg",
     name: "Citizen Jane",
-    description_1: "test",
-    description_2: "",
-  },
-  {
-    url: "https://nimaniazi.com/nila",
-    image: "https://nimaniazi.com/static/nila/thumbnail.jpg",
-    name: "Nila - Smart Alarm Sleeping Mask",
-    description_1: "test",
+    description_1:
+      "Alongside web development and audio programming, I also have a passion for game development. Citizen Jane is a 2D game that I built using Unity. I also 3D modeled, designed and fabricated a physical controller that goes with it. It's a story-driven game where you play as Jane, a citizen of a dystopian city where you need to collect social points to survive and try to avoid the viruses and threats that are constantly attacking you.",
     description_2: "",
   },
   {
     url: "https://nimaniazi.com/veggiesandmeat",
     image: "https://nimaniazi.com/static/veggiesandmeat/thumbnail.jpg",
-    name: "Veggies & Meat - Arcade Game",
-    description_1: "test",
+    name: "Veggies & Meat",
+    description_1:
+      "Another game development project using Unity engine, a part of my ITP coursework, I collaborated with my peers to create an arcade game that is controlled by a physical controller that we designed and fabricated. The game is called Veggies and Meat and it's a 2D game where you play as a chef that needs to catch the falling ingredients to feed a creature.",
     description_2: "",
   },
   {
     url: "https://nimaniazi.com/binaryphonestand",
     image: "https://nimaniazi.com/static/binaryphonestand/thumbnail.jpg",
     name: "Binary Phone Stand",
-    description_1: "test",
-    description_2: "",
-  },
-  {
-    url: "https://nimanns.github.io/juvenile-demo/",
-    image: "https://nimaniazi.com/static/juvenile.png",
-    name: "juvenile - p5.js audio visualizer",
-    description_1: "test",
-    description_2: "",
-  },
-  {
-    url: "https://nimaniazi.com/itp/energy/7/",
-    image: "https://nimaniazi.com/static/kineticwah.png",
-    name: "The Kinetic Wah Pedal",
-    description_1: "test",
-    description_2: "",
+    description_1:
+      "During my time at ITP, I also explored product design and fabrication. This is a phone stand that I designed and fabricated as a part of my ITP coursework. The phone stand connects to your phone and displays your notifications in binary in a 8-bit pixel grid it has on the front.",
+    description_2: "For more information please check out the project's page.",
   },
   {
     url: "https://nimaniazi.com/itp/light/9",
     image: "https://nimaniazi.com/static/circle.png",
     name: "Circle - An interactive task light",
-    description_1: "test",
-    description_2: "",
+    description_1:
+      "This is a collaboration between me and my peer Orpheas Kofinakos. We designed and fabricated an interactive task light where the user can turn it on and off using gestures. It's running a machine learning model that is trained on a dataset of gestures.",
+    description_2: "For more information please checkout the project website.",
   },
 ];

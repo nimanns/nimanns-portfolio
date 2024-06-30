@@ -24,7 +24,7 @@ export default function Project({ project }: { project: Project }) {
   const main_transition: Transition = {
     type: "tween",
     ease: cuteBezier,
-    duration: 0.5,
+    duration: 0.9,
   };
 
   const description_variants: Variants = {
@@ -58,7 +58,7 @@ export default function Project({ project }: { project: Project }) {
         transition={main_transition}
       >
         <a href={project.url} target="_blank">
-          <motion.h1 className="underline p-10 text-[32px] sm:p-3 w-fit h-fit sm:text-4xl">
+          <motion.h1 className="hover:underline p-10 text-[32px] sm:p-3 w-fit h-fit sm:text-[48px]">
             {project.name}
           </motion.h1>
         </a>
@@ -111,7 +111,7 @@ export default function Project({ project }: { project: Project }) {
         {project?.description_1}
       </motion.h2>
       <motion.p
-        className="mt-10 text-lg"
+        className="mt-10 lg:text-3xl md:text-2xl sm:text-xl text-lg"
         variants={description_variants}
         transition={description_transition}
       >

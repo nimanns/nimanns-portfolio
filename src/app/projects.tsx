@@ -93,13 +93,13 @@ export default function Projects({ projects }: { projects: Project[] }) {
       opacity: [0, 1, 1, 0],
       transition: {
         x: {
-          repeat: Infinity,
+          repeat: 2,
           repeatType: "loop",
           duration: 1,
           ease: "linear",
         },
         opacity: {
-          repeat: Infinity,
+          repeat: 2,
           repeatType: "loop",
           duration: 1,
           times: [0, 0.1, 0.9, 1],
@@ -114,13 +114,13 @@ export default function Projects({ projects }: { projects: Project[] }) {
       opacity: [0, 1, 1, 0],
       transition: {
         x: {
-          repeat: Infinity,
+          repeat: 2,
           repeatType: "loop",
           duration: 1,
           ease: "linear",
         },
         opacity: {
-          repeat: Infinity,
+          repeat: 2,
           repeatType: "loop",
           duration: 1,
           times: [0, 0.1, 0.9, 1],
@@ -136,7 +136,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
           <motion.div
             {...handlers}
             key={projects[index].name}
-            className="absolute flex flex-col items-center min-h-screen bg-gray-800 text-text-color gap-4 h-full w-[80%] max-w-7xl p-10 shadow-[0_0_40px_-6px_rgba(0,0,0,0.4)]"
+            className="absolute overflow-y-scroll overflow-x-visible flex flex-col items-center min-h-screen bg-gray-800 text-text-color gap-4 h-full w-full md:w-[80%] max-w-7xl p-10 shadow-[0_0_40px_-6px_rgba(0,0,0,0.4)]"
             custom={direction}
             variants={variants}
             initial="enter"
@@ -153,12 +153,12 @@ export default function Projects({ projects }: { projects: Project[] }) {
           animate: {
             opacity: [1, 0],
             transition: {
-              opacity: { duration: 0.2, ease: [0.0, 0.0, 0.8, 0.99], delay: 5 },
+              opacity: { duration: 0.2, ease: [0.0, 0.0, 0.8, 0.99], delay: 3 },
             },
           },
         }}
         animate="animate"
-        className="absolute bottom-10 w-fit h-50 flex flex-row justify-center contents-center"
+        className="absolute bottom-10 w-fit h-50 flex flex-row justify-center contents-center bg-gray-600 p-6 opacity-5"
       >
         <motion.div
           variants={arrow_left_variants}
@@ -166,7 +166,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
           id="left-arrow"
           className="w-10"
         ></motion.div>
-        <p className="text-2xl w-fit">
+        <p className="text-4xl w-fit">
           Use arrow keys or swipe left and right to move between projects
         </p>
         <motion.div
