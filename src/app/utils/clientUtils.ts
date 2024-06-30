@@ -3,7 +3,7 @@ export function useThrottle(callback: (...args: any) => any, limit: number) {
   const waiting = useRef(false);
 
   return useCallback(
-    (...args) => {
+    (...args: any) => {
       if (!waiting.current) {
         callback(...args);
         waiting.current = true;
